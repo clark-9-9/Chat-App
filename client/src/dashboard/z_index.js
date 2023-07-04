@@ -1,0 +1,5 @@
+export{ Main_Page } from "./main_page"
+export{ Side_bar } from "./side_bar"
+export{ Chat_Messages } from "./chat_messages"
+export{ Users } from "./user"
+export{ Add_Contact } from "./add_contact"

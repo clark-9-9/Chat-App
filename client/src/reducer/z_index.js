@@ -1,0 +1,1 @@
+export{ Action, Reducer } from "./register"

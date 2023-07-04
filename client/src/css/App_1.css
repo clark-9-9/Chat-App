@@ -1,0 +1,438 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+:root {
+
+    --Segoe_Print_Font: Segoe Print;   
+    --Segoe_Ui_Font: Segoe UI;
+
+    --Chats_Background_Color: #F7F7F8;
+    --Messages_Background_Color: #EAEAEA;
+    --Blue_Color: #007AFF;
+    --Pink_Color: #8529E2;
+    --Text_Color: #1B1B1B;
+
+    --Form_Text_11px: 11px;
+    --Form_Text_12px: 12px;
+    --Form_Text_14px: 14px;
+    --Form_Text_20px: 20px;
+
+    --Form_Inputs_Width: 400px; 
+    --Form_Inputs_Height: 50px; 
+
+    --Register_Side_Box_Shadow: 0 0 50px rgba(133, 41, 226, 0.4); 
+    --Welcom_Side_Box_Shadow: 0 0 50px #FC1239; 
+    --Inputs_Box_Shadow: 7px 7px 30px rgba(133, 41, 226, 0.4); 
+    --Btns_Box_Shadow: 0 0 20px rgba(133, 41, 226, 0.7);
+
+    --Dark_Color: #131D3A;
+    --Light_Color: #EDF1FD;
+
+    --Register_Side_Welcome_Side_Width: 920px;
+    --Register_Side_Welcome_Side_Height:555px;
+
+    --Left_Chat_Side_Bar_Width: 370px;
+    --User_Information_Side_Bar: 290px
+
+    --User_Contact_Header_Name:14px;
+    --User_Contact_Bottom_Text:11px;
+
+    --Current_User_Image:34.88px;
+    --User_Contact_Image:60px;
+    --Register_Side_Welcome_Side_Height:555px;
+
+    --Chat_Box_Height:76px;
+
+    
+}
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: var(--Segoe_Print_Font);
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--Light_Color);
+    overflow-x: hidden;
+} 
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* 
++--------------------------- Register_Login_Welcome_Box ---------------------+
++--------------------------- Register_Login_Side ---------------------+
+*/
+
+
+.Authentication_Grid{
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.Register_Login_Welcome_Box {
+    position: relative;
+    max-width: var(--Register_Side_Welcome_Side_Width);
+    display: grid;
+    width: 70%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 60% 40%;
+    border-radius: 30px;
+}
+
+
+@media( max-width: 960px ) {
+    
+    .Register_Login_Welcome_Box {
+        grid-template-rows: 0.5fr 1fr;
+        grid-template-columns: 1fr ;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 5rem;
+
+    }
+
+}
+
+
+.Register_Login_Side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 4rem 0rem;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: white;
+    box-shadow: var(--Register_Side_Box_Shadow);
+    overflow: hidden;
+    z-index: 2;
+}
+
+
+@media( max-width: 960px ) {
+    
+    .Register_Login_Side {
+        border-radius: 0;
+        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 30px; 
+        grid-area: 2;   
+        margin-bottom: 5rem;
+    }
+    
+}
+
+
+.Register_Login_Header {
+    text-align: center;
+    z-index: 2;
+    color: var(--Dark_Color);
+}
+
+
+.Register_Login_Header p:nth-child(1) { font-size: 20px; }
+.Register_Login_Header p:nth-child(2) { font-size: 11px; }
+
+.Two_Separate_Inputs {
+    position: relative;
+    width: 100%;
+}
+
+.Register_Login_Inputs_1, .Register_Login_Inputs_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 36px;
+    width: 100%;
+    transition: 500ms ease-in-out;
+    /* border: 2px solid; */
+}
+
+
+.Register_Login_Inputs_1 {
+    transform: translateX(0%);
+}
+
+
+.Register_Login_Inputs_2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.Single_Input_Box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    max-width: 400px;
+    z-index: 1;
+    /* border: 2px solid; */
+}
+
+
+.Single_Input_Box ion-icon {
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    color: var(--Pink_Color);
+}
+
+
+.Inputs {
+    height: var(--Form_Inputs_Height);
+    width: 100%;
+    border: none;
+    outline: none;
+    box-shadow: var(--Inputs_Box_Shadow);
+    color: var(--Pink_Color);
+    font-weight: bold;
+    border-radius: 3rem;
+    padding-left: 70px;
+    padding-right: 15px;
+    font-family: var(--Segoe_Ui_Font);
+}
+
+
+.Inputs::placeholder {
+    opacity: 0.5;
+    font-family: var(--Segoe_Print_Font);
+    color: var(--Pink_Color);
+    font-size: var(--Form_Text_11px);
+}
+
+
+.Register_Login_Bottom {
+    font-size: var(--Form_Text_11px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    max-width: max-content;
+}
+
+
+.Sign_Btn{ 
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+}
+
+
+.Sign_Btn button{
+    cursor: pointer; 
+    width: 80%;
+    padding: 0.6rem 0rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--Pink_Color);
+    font-family: var(--Segoe_Print_Font);
+    font-size: var(--Form_Text_14px);
+    transition: 300ms ease-out ;
+}
+
+
+.Sign_Btn button:hover {
+    background-color: var(--Pink_Color);
+    box-shadow: var(--Btns_Box_Shadow);
+    opacity: 0.7;
+}
+
+
+.Navigate_To_Text { 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: var(--Form_Text_12px); 
+
+}
+
+
+.Navigate_To_Text p:nth-child(1) {
+    color: var(--Pink_Color);
+    opacity: 0.5;
+}
+
+
+.Navigate_To_Text #link_to_register,  
+.Navigate_To_Text #link_to_login{ 
+    color: var(--Pink_Color); 
+    margin-left: 3px; 
+    text-decoration: none;
+}
+
+
+.Prev_Next_Btn {
+    position: absolute;
+    width: 100%;
+    top: 5%;
+    display: flex;
+    padding: 0 35px;
+    justify-content: space-between;
+    gap: 40px;
+    z-index: 1;
+}
+
+.Prev_Btn, .Next_Btn {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 0.5rem 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    background-color: var(--Pink_Color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 300ms ease-out;
+}
+
+
+.Prev_Btn {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.Next_Btn {
+    visibility: visible;
+    opacity: 1;
+}
+
+.Prev_Btn:hover, .Next_Btn:hover {
+    /* opacity: 0.7; */
+    background-color: rgba(133, 41, 226, 0.7);
+    box-shadow: var(--Btns_Box_Shadow);
+}
+
+
+
+/* 
++---------------------------- Welcome_Side ---------------------------+
+*/
+
+
+.Welcome_Side {
+    position: relative;
+    background-color: var(--Pink_Color);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    box-shadow: var(--Welcom_Side_Box_Shadow);
+    z-index: 1;
+}
+
+@media( max-width: 960px ) {
+    
+    .Welcome_Side {        
+        border-radius: 0;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        grid-area: 1;   
+
+    }
+
+}
+
+
+.Welcom_Text_Box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.Welcom_Text_Box p:nth-child(1) {
+    font-size: var(--Form_Text_20px);
+}
+
+
+.Welcom_Text_Box p:nth-child(2) {
+    padding: 0 10px;
+    font-size: var(--Form_Text_11px);
+    line-height: 30px;
+    font-family: var(--Segoe_Print_Font);
+    text-transform: uppercase;
+}
+
+
+.Progress_Box {
+    position: absolute;
+    bottom: 6.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    background-color: white;
+    padding: 0.8rem 1.5rem;
+
+}
+
+
+.Progress_1 {
+    position: relative;
+    width: 100%;
+    border-radius: 2rem;
+    background-color: white;
+    box-shadow: var(--Inputs_Box_Shadow);  
+    overflow: hidden;  
+}
+
+
+.Progress_2 {
+    height: 20px;
+    width: 57%;
+    background-color: var(--Blue_Color);
+    border-radius: 2rem;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    transition: 300ms ease-in-out;
+}
+
+
+@media( max-width: 960px ) {
+
+    .Welcom_Text_Box {
+        margin-top: -20px;
+    }
+    
+    .Progress_Box {
+        bottom: 2rem;
+        max-width: 300px;
+    }
+    
+}
