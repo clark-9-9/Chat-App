@@ -2,7 +2,7 @@ require('dotenv').config()
 require("express-async-errors")
 
 const express = require("express")
-const app = express()
+const app = express() 
 
 const connectDB = require('./db/connectDB')
 const authRouter  = require('./routes/User_Auth_Routes')
