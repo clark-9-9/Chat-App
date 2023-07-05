@@ -38,7 +38,10 @@ function connect() {
 
     try {
         const port = process.env.PORT || 3001
-        connectDB(process.env.MONGO_URL)
+        const URI = process.env.MONGO_URI;
+        
+        if (!URI) throw new Error('MongoDB URI is not defined');
+        connectDB(URI)
 
         app.listen(port, console.log("Connect To the Server"))
 

@@ -9,8 +9,9 @@ const get_user = async (User_Data, setUser) => {
         }
     }
 
+
     try {
-        const get_data = await fetch('/api/v1/chat-messages/current-user', option)
+        const get_data = await fetch('https://mern-chat-app-backend.onrender.com/api/v1/chat-messages/current-user', option)
         const get_info = await get_data.json()
         setUser(get_info)
 
@@ -35,7 +36,7 @@ const handle_contact_message = async (e, User_Data, setUser_Messages) => {
 
     
     try {
-        const get_data = await fetch(`/api/v1/chat-messages/get-messages/${userId}`, option)
+        const get_data = await fetch(`https://mern-chat-app-backend.onrender.com/api/v1/chat-messages/get-messages/${userId}`, option)
         const get_info = await get_data.json() 
         setUser_Messages(get_info)
 
@@ -58,7 +59,7 @@ const handle_contact_message_2 = async (id, User_Data, setUser_Messages) => {
     }    
     
     try {
-        const get_data = await fetch(`/api/v1/chat-messages/get-messages/${userId}`, option)
+        const get_data = await fetch(`https://mern-chat-app-backend.onrender.com/api/v1/chat-messages/get-messages/${userId}`, option)
         const get_info = await get_data.json() 
         setUser_Messages(get_info)
     }
@@ -75,7 +76,7 @@ const handle_other_user_id = async (e, setOther_User) => {
 
     const userId =  e.target.dataset.id; 
 
-    const get_data = await fetch(`/api/v1/chat-messages/other-user/info/${userId}`, { method: "get" })
+    const get_data = await fetch(`https://mern-chat-app-backend.onrender.com/api/v1/chat-messages/other-user/info/${userId}`, { method: "get" })
     const get_info = await get_data.json()  
     setOther_User([get_info, userId])
 }
@@ -106,7 +107,7 @@ const handle_send_message = async (values) => {
     
 
     try {
-        const post_data = await fetch(`/api/v1/chat-messages/send-message/${userId}`, option)
+        const post_data = await fetch(`https://mern-chat-app-backend.onrender.com/api/v1/chat-messages/send-message/${userId}`, option)
         const get_info = await post_data.json()
         text_area.current.style.height = "46px";
         handle_contact_message_2(userId, User_Data, setUser_Messages)
@@ -130,7 +131,7 @@ const handle_user_logout = async (User_Data, NavigateTo) => {
         },
     };
       
-    const post_data = await fetch(`/api/v1/auth/logout`, options)
+    const post_data = await fetch(`https://mern-chat-app-backend.onrender.com/api/v1/auth/logout`, options)
     const remove_data = await post_data.json() 
     localStorage.removeItem("UserData")
     NavigateTo('/login')
@@ -148,7 +149,7 @@ const handle_not_in_contact = async (User_Data, setNot_In_Contact) => {
         }
     };
     try {
-        const get_data = await fetch('/api/v1/chat-messages/not-in-contat', options)
+        const get_data = await fetch('https://mern-chat-app-backend.onrender.com/api/v1/chat-messages/not-in-contat', options)
         const get_info = await get_data.json()
         setNot_In_Contact(get_info)
     }
@@ -169,7 +170,7 @@ const handle_add_contact = async (e, User_Data, setUser, setNot_In_Contact) => {
         }
     };
       
-    const post_data = await fetch(`/api/v1/chat-messages/contact/${userId}`, options)
+    const post_data = await fetch(`https://mern-chat-app-backend.onrender.com/api/v1/chat-messages/contact/${userId}`, options)
     const get_info = await post_data.json()
     handle_not_in_contact(User_Data, setNot_In_Contact)
     get_user(User_Data, setUser)
@@ -188,7 +189,7 @@ const handle_delete_contact = async (e, User_Data, setUser) => {
         }
     };
       
-    const delete_data = fetch(`/api/v1/chat-messages/contact/${userId}`, options)
+    const delete_data = fetch(`https://mern-chat-app-backend.onrender.com/api/v1/chat-messages/contact/${userId}`, options)
     const delete_info = await (await delete_data).json()
     get_user(User_Data, setUser)
 

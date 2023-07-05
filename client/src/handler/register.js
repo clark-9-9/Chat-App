@@ -138,7 +138,7 @@ const handle_form_submit = async (e, State, Dispatch, NavigateTo) => {
                 body: JSON.stringify(request_body)
             }
 
-            const post_info = await fetch("/api/v1/auth/register", option) 
+            const post_info = await fetch("https://mern-chat-app-backend.onrender.com/api/v1/auth/register", option) 
             const get_info = await post_info.json()
 
             NavigateTo("/login")
@@ -182,7 +182,7 @@ const handle_form_login = async (
                 body: JSON.stringify(request_body)
             }
 
-            const post_info = await fetch("/api/v1/auth/login", option) 
+            const post_info = await fetch("https://mern-chat-app-backend.onrender.com/api/v1/auth/login", option) 
             const get_info = await post_info.json()
 
             localStorage.setItem('UserData', JSON.stringify(get_info))
