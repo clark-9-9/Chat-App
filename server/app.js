@@ -2,6 +2,7 @@ require('dotenv').config()
 require("express-async-errors")
 
 const express = require("express")
+const cors = require('cors');
 const app = express() 
 
 const connectDB = require('./db/connectDB')
@@ -9,14 +10,21 @@ const authRouter  = require('./routes/User_Auth_Routes')
 const chatRouter  = require('./routes/Chat_Routes')
 
 
+app.use(
+    cors({
+        origin:["http://localhost:3000", "https://mern-chat-app-frontend-4h6s.onrender.com"],
+        methods: ['GET', 'POST', 'PUT', 'DELETE', "PATCH"], 
+        allowedHeaders: ['Content-Type', 'Authorization']
+    }) 
+);
 
-app.use(express.json()) 
 
 
 //! Errors 
 //+ Middleware
 const { Not_Found, ErrorHandler } = require('./middleware/z_index')  
- 
+app.use(express.json()) 
+
 
 
 //+ Routes
